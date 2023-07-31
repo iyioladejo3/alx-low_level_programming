@@ -1,25 +1,19 @@
-#include <stdio.h>
+/**
+ * _memset - fills memory with a constant byte
+ * @s: pointer to the block of memory to fill
+ * @b: value to set
+ * @n: number of bytes to fill
+ * Return: pointer to the memory block 's'
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+    unsigned int i;
 
-char *_memcpy(char *dest, char *src, unsigned int n) {
-    // Pointer to the destination and source memory areas
-    char *dest_ptr = dest;
-    char *src_ptr = src;
-
-    // Copy 'n' bytes from source to destination
-    while (n > 0) {
-        *dest_ptr++ = *src_ptr++;
-        n--;
+    /* Using a FOR loop to fill the memory block */
+    for (i = 0; i < n; i++)
+    {
+        *(s + i) = b; /* Fill one position at a time */
     }
 
-    return dest;
-}
-
-int main() {
-    char src[] = "Hello, World!";
-    char dest[20];
-
-    _memcpy(dest, src, 13);
-
-    printf("Copied String: %s\n", dest);
-    return 0;
+    return (s);
 }
